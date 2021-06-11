@@ -5,6 +5,7 @@ import {useState} from 'react'
 import {GridLoader} from 'react-spinners'
 import Dropzone from 'react-dropzone'
 import { v4 as randomString } from 'uuid';
+import './Create.css'
 
 const Create = (props) => {
     const [year, setYear] = useState([])
@@ -70,12 +71,14 @@ const Create = (props) => {
         props.history.push('/home')
     }
     return(
-        <div>
-            <h1>Create Post</h1>
-            <input placeholder='Year' value={year} onChange={(e) => setYear(e.target.value)} />
-            <input placeholder='Make' value={make} onChange={(e) => setMake(e.target.value)} />
-            <input placeholder='Model' value={model} onChange={(e) => setModel(e.target.value)} />
-            <input placeholder='Trim' value={trim} onChange={(e) => setTrim(e.target.value)} />
+        <div className='create'>
+            <h1 className='create-title'>Create Post</h1>
+            <div className='create-vehicle'>
+              <input placeholder='Year' value={year} onChange={(e) => setYear(e.target.value)} />
+              <input placeholder='Make' value={make} onChange={(e) => setMake(e.target.value)} />
+              <input placeholder='Model' value={model} onChange={(e) => setModel(e.target.value)} />
+              <input placeholder='Trim' value={trim} onChange={(e) => setTrim(e.target.value)} />
+            </div>
             <br />
             <div>
             <Dropzone
@@ -83,18 +86,18 @@ const Create = (props) => {
           accept="image/*"
           multiple={false}>
           {({getRootProps, getInputProps}) => (
-            <div 
-              style = {{
-              position: 'relative',
-              width: 160,
-              height: 80,
-              borderWidth: 5,
-              marginTop: 25,
-              borderColor: 'gray',
-              borderStyle: 'dashed',
-              borderRadius: 5,
-              display: 'inline-block',
-              fontSize: 17,}}
+            <div className='dropzone'
+              // style = {{
+              // position: 'relative',
+              // width: 160,
+              // height: 80,
+              // borderWidth: 5,
+              // marginTop: 25,
+              // borderColor: 'gray',
+              // borderStyle: 'dashed',
+              // borderRadius: 5,
+              // display: 'inline-block',
+              // fontSize: 17,}}
               {...getRootProps()}>
               <input {...getInputProps()} />
               {isUploading ? <GridLoader /> : <p>Drop files here, or click to select files</p>}
@@ -103,9 +106,13 @@ const Create = (props) => {
          </Dropzone>
             </div>
             <br />
-            <input placeholder='Part/Modification' value={description} onChange={(e) => setDescription(e.target.value)} />
-            <input placeholder='Exterior or Interior' value={type} onChange={(e) => setType(e.target.value)} />
-            <button onClick={submit}>Submit</button>
+            <div className='create-mod'>
+              <input placeholder='Part/Modification' value={description} onChange={(e) => setDescription(e.target.value)} />
+              <input placeholder='Exterior or Interior' value={type} onChange={(e) => setType(e.target.value)} />
+            </div>
+            <div>
+              <button className='create-submit-button' onClick={submit}>Submit</button>
+            </div>
         </div>
     )
 }

@@ -3,6 +3,7 @@ import {useEffect, useState, useCallback} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {setVehicles} from '../ducks/vehicleReducer'
 import {Link} from 'react-router-dom'
+import './Dash.css'
 
 const Dash = (props) => {
     const {builds} = useSelector((store) => store.vehicle)
@@ -51,38 +52,44 @@ const Dash = (props) => {
     }, [mine, oldest, grabBuilds])
 
     return(
-        <div>
-            <h1>Posted Builds</h1>
-            <div>
-                <p>Include my builds</p>
-                <input checked={mine} onChange={() => setMine(!mine)} type='checkbox' />
-            </div>
-            <div>
-                <p>oldest to newest</p>
-                <input checked={oldest} onChange={() => setOldest(!oldest)} type='checkbox' />
-            </div>
-            <div>
-                <input placeholder='Make and/or Model' value={search} onChange={(e) => setSearch(e.target.value)} />
-                <button onClick={() => grabBuilds()} >Search</button>
-                <button>Reset</button>
-            </div>
-            {builds.map((vehicle) => {
-                return(
-                    <div key={vehicle.vehicle_id}>
-                        <Link to={`/build/${vehicle.vehicle_id}`}><h3>{vehicle.year} {vehicle.make} {vehicle.model} {vehicle.trim}</h3></Link>
-                        <img src={vehicle.link} alt='' style={{height: 150, width: 225}} />
-                        {/* {pic.map(picture => {
-                            return(
-                                <div className='gallery'>
-                                    <img className='pictures' src={picture.link} alt='build pic' />
-                                </div>
-                            )
-                        })} */}
-                        <br />
-                        <button onClick={() => deletevehicle(vehicle.vehicle_id)}>Delete</button>
+        <div className='dash'>
+            <h1 className='dash-title'>Posted Builds</h1>
+                <div className='dash-search'>
+                    <input placeholder='Make and/or Model' value={search} onChange={(e) => setSearch(e.target.value)} />
+                    <button onClick={() => grabBuilds()} >Search</button>
+                    {/* <button>Reset</button> */}
+                </div>
+            <div className='dash-container'>
+                <div className='dash-all-vehicles'>
+                    {builds.map((vehicle) => {
+                        return(
+                            <div className='dash-vehicle-box' key={vehicle.vehicle_id}>
+                                <Link to={`/build/${vehicle.vehicle_id}`}><h3 className='dash-vehicle-title'>{vehicle.year} {vehicle.make} {vehicle.model} {vehicle.trim}</h3></Link>
+                                <img className='dash-pic' src={vehicle.link} alt='' style={{height: 150, width: 225}} />
+                                {/* {pic.map(picture => {
+                                    return(
+                                        <div className='gallery'>
+                                        <img className='pictures' src={picture.link} alt='build pic' />
+                                        </div>
+                                        )
+                                    })} */}
+                                <br />
+                                <button className='dash-delete' onClick={() => deletevehicle(vehicle.vehicle_id)}>X</button>
+                            </div>
+                        )
+                    })}
+                </div>
+                <div className='dash-filter-box'>
+                    <div>
+                        <p>Include my builds</p>
+                        <input checked={mine} onChange={() => setMine(!mine)} type='checkbox' />
                     </div>
-                )
-            })}
+                    <div>
+                        <p>oldest to newest</p>
+                        <input checked={oldest} onChange={() => setOldest(!oldest)} type='checkbox' />
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react'
 // import {useDispatch} from 'react-redux'
 // import {setVehicles} from '../ducks/vehicleReducer'
 import ModItem from './ModItem'
+import './Build.css'
 
 const Build = (props) => {
     const {id} = props.match.params
@@ -98,36 +99,40 @@ const Build = (props) => {
     //     })
     // }, [dispatch])
     return(
-        <div>
+        <div className='build'>
             {/* <h1>{props.match.params.id}</h1> */}
-            <h2>{build.author}'s {build.year} {build.make} {build.model} {build.trim}</h2>
+            <h2 className='build-title'>{build.author}'s {build.year} {build.make} {build.model} {build.trim}</h2>
             {pic.map(picture => {
                 return(
                     <div className='gallery'>
-                        <img className='pictures' src={picture.link} alt='build pic' style={{width: 300, height: 250}} />
+                        <img className='pictures' src={picture.link} alt='build pic' />
                     </div>
                 )
             })}
-            <div>
+            <br />
+            <div className='build-add-mod'>
                 <input placeholder='Part/Modification' value={description} onChange={(e) => setDescription(e.target.value)} />
                 <input placeholder='Exterior or Interior' value={type} onChange={(e) => setType(e.target.value)} />
                 <button onClick={save}>Add Mod</button>
             </div>
-            <div>
-                <h3> Exterior Modifications: </h3>
-                {exMods.map(mod => {
-                    return(
-                        <ModItem mod={mod} deleteMod={deleteMod} saveEdit={saveEdit} key={mod.mod_id} />
-                        )
-                    })}
-            </div>
-            <div>
-                <h3> Interior Modifications: </h3>
-                {inMods.map(mod => {
-                    return(
-                        <ModItem mod={mod} deleteMod={deleteMod} saveEdit={saveEdit} key={mod.mod_id} />
-                        )
-                    })}
+            <br />
+            <div className='build-mod-box'>
+                <div className='build-ex-mod-box'>
+                    <h3> Exterior Modifications: </h3>
+                    {exMods.map(mod => {
+                        return(
+                            <ModItem mod={mod} deleteMod={deleteMod} saveEdit={saveEdit} key={mod.mod_id} />
+                            )
+                        })}
+                </div>
+                <div className='build-in-mod-box'>
+                    <h3> Interior Modifications: </h3>
+                    {inMods.map(mod => {
+                        return(
+                            <ModItem mod={mod} deleteMod={deleteMod} saveEdit={saveEdit} key={mod.mod_id} />
+                            )
+                        })}
+                </div>
             </div>
         </div>
     )

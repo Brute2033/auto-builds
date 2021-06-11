@@ -1,0 +1,72 @@
+.build{
+    /* background-color: lightsteelblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    background-image: url('../assets/images/caleb-rogers-SGLh5-clL4E-unsplash.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* background-color: gray; */
+    /* width: 100vw; */
+    height: 92vh;
+    overflow: auto;
+    box-sizing: border-box;
+    max-width: 100vw;
+}
+
+.build-title{
+    color: white;
+}
+
+.build-mod-box{
+    /* border: black solid 3px; */
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.build-ex-mod-box{
+    /* border: black solid 3px; */
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 15px 1px black;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, .6);
+    border-radius: 10px;
+    color: white;
+}
+
+.build-in-mod-box{
+    /* border: black solid 3px; */
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 15px 1px black;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, .6);
+    border-radius: 10px;
+    color: white;
+}
+
+.gallery{
+    box-shadow: 0px 0px 15px 1px black;
+}
+
+.pictures{
+    max-width: 50%;
+}
+
+.x-button{
+    background-color: transparent;
+    color: red;
+}
+
+@media(max-width: 600px){
+    .build-mod-box{
+        flex-direction: column;
+    }
+    .build-in-mod-box{
+        margin-top: 15px;
+    }
+}

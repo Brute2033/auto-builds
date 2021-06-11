@@ -1,0 +1,95 @@
+.dash{
+    background-image: url('../assets/images/nicki-eliza-schinow-mg3nB1l2KdM-unsplash.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* background-color: gray; */
+    /* width: 100vw; */
+    height: 92vh;
+    overflow: auto;
+    box-sizing: border-box;
+    max-width: 100vw;
+}
+
+.dash-title{
+    color: yellow;
+    font-size: 40px;
+    margin-top: 0px;
+}
+
+.dash-container{
+    display: flex;
+    box-sizing: border-box;
+    max-width: 95%;
+}
+
+.dash-filter-box{
+    /* border: 3px black solid; */
+    width: 150px;
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    /* margin-right: 50px; */
+    margin-top: 75px;
+    padding: 10px;
+    box-shadow: 0px 0px 15px 2px black;
+    border-radius: 5px;
+    background-color: rgba(155, 155, 155, .6);
+}
+
+.dash-vehicle-box{
+    /* border: black solid 3px; */
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    padding: 15px;
+    box-shadow: 0px 0px 15px 2px black;
+    border-radius: 5px;
+    background-color: rgba(155, 155, 155, .6);
+}
+
+.dash-vehicle-title{
+    width: 250px;
+}
+
+.dash-all-vehicles{
+    /* border: black solid 3px; */
+    width: 85%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 50px;
+    margin-right: 0;
+}
+
+.dash-search{
+    display: flex;
+    justify-content: center;
+}
+
+.dash-delete{
+    background-color: red;
+    border-radius: 5px;
+}
+
+.dash-pic{
+    box-shadow: 0px 0px 10px 1px;
+}
+
+@media(max-width: 750px){
+    .dash-filter-box{
+        margin-top: 15px;
+        margin-bottom: 350px;
+        flex-direction: row;
+    }
+    .dash-all-vehicles{
+        margin-top: 200px;
+    }
+    .dash{
+        align-items: center;
+    }
+}

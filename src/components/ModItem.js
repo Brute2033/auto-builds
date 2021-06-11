@@ -7,7 +7,7 @@ const ModItem = (props) => {
     return(
         <div>
             <p> {mod.description} </p>
-            <button onClick={() => deleteMod(mod.mod_id)}>X</button>
+            <button className='x-button' onClick={() => deleteMod(mod.mod_id)}>X</button>
             <input placeholder='What has changed' value={descriptionTwo} onChange={(e) => setDescriptionTwo(e.target.value)} />
             <button onClick={() => saveEdit(mod.mod_id, descriptionTwo)}> Update </button>
         </div>

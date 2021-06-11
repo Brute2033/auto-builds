@@ -2,6 +2,7 @@ import {useState} from 'react'
 import axios from 'axios'
 import {useDispatch} from 'react-redux'
 import {setUser} from '../ducks/authReducer'
+import './Auth.css'
 
 const Auth = (props) => {
     const [username, setUsername] = useState('')
@@ -26,19 +27,21 @@ const Auth = (props) => {
         .catch((err) => console.log(err))
     }
     return(
-        <div>
-            <h1>Auto Builds</h1>
-            <div>
-                <p>Username:</p>
-                <input value={username} onChange={(e) => setUsername(e.target.value)} />
-            </div>
-            <div>
-                <p>Password:</p>
-                <input value={password} onChange={(e) => setPassword(e.target.value)} />
-            </div>
-            <div>
-                <button onClick={handleLogin}>Login</button>
-                <button onClick={handleRegister}>Register</button>
+        <div className='auth'>
+            <div className='auth-container'>
+                <h1 className='auth-title'>Auto Builds</h1>
+                <div>
+                    <p>Username:</p>
+                    <input placeholder='Enter' value={username} onChange={(e) => setUsername(e.target.value)} />
+                </div>
+                <div>
+                    <p>Password:</p>
+                    <input placeholder='Enter' value={password} onChange={(e) => setPassword(e.target.value)} />
+                </div>
+                <div>
+                    <button className='auth-buttons' onClick={handleLogin}>Login</button>
+                    <button className='auth-buttons' onClick={handleRegister}>Register</button>
+                </div>
             </div>
         </div>
     )
