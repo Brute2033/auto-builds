@@ -36,7 +36,7 @@ const Auth = (props) => {
                 </div>
                 <div>
                     <p>Password:</p>
-                    <input placeholder='Enter' value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <input placeholder='Enter' type='password' value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
                 <div>
                     <button className='auth-buttons' onClick={handleLogin}>Login</button>

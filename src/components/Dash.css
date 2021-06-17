@@ -83,13 +83,14 @@
 @media(max-width: 750px){
     .dash-filter-box{
         margin-top: 15px;
-        margin-bottom: 350px;
+        /* margin-bottom: 350px; */
         flex-direction: row;
     }
-    .dash-all-vehicles{
+    /* .dash-all-vehicles{
         margin-top: 200px;
-    }
-    .dash{
+    } */
+    .dash-container{
+        flex-direction: column-reverse;
         align-items: center;
     }
 }
